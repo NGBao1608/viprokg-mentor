@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{MRR drop (points \%) under \textbf{answer-name masking} on the headline MENTOR configuration (3 seeds, TEST). Masking concentrates on the \emph{mention-overlap} split on the three standard sets (ratio 6{,}3--14{,}9$\times$, meeting the pre-specified threshold); on ViProKG masking still concentrates on overlap (17{,}43 $>$ 8{,}46) but the ratio 2{,}06$\times$ is below the threshold, because the high share of masked tokens (23{,}2) also removes context. AdaMF-MAT is not applicable (its text is a learned parameter, overwritten by the checkpoint).}
+\label{tab:e_che}
+\begin{tabular}{l r r r r r r r c c}
+\toprule
+ & \multicolumn{2}{c}{overall drop} & & & \multicolumn{2}{c}{overlap/free ratio} & & & \\
+\cmidrule(lr){2-3}\cmidrule(lr){6-7}
+Dataset & name mask & \emph{random}$^{\S}$ & overlap & free & name mask & \emph{random} & \%masked tokens & threshold & pass \\
+\midrule
+MKG-W          & 10.64 & 3.67  & 29.06 & 2.43 & \textbf{11.98}$\times$ & 1.28 & 4.6  & $\geq$5$\times$ & \checkmark \\
+MKG-Y          & 10.30 & 2.90  & 27.39 & 1.84 & \textbf{14.90}$\times$ & 0.99 & 3.0  & $\geq$5$\times$ & \checkmark \\
+DB15K          & 7.52  & 3.80  & 19.15 & 3.04 & \textbf{6.31}$\times$  & 0.93 & 8.7  & $\geq$5$\times$ & \checkmark \\
+ViProKG     & 10.78 & 23.22 & 17.43 & \textbf{8.46} & \textbf{2.06}$\times$ & 1.04 & \textbf{23.2} & $\geq$3$\times$ & $\times$ \\
+AdaMF-MAT      & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Source: answer-name masking runs (W/Y/DB + ViProKG round 2, correct instrument, bit-equal to \texttt{che2\_kq.json}).
+$^{\S}$The \emph{random} column is the control of \textbf{RANDOM masking} with the same \%tokens per description that \emph{does not touch name tokens} (3 seeds). Result: random drop $<$ name-mask drop on the three standard sets, and the \textbf{random overlap/free ratio $\approx$1} (W 1.28 / Y 0.99 / DB 0.93) --- random masking does \emph{not} concentrate on overlap as name masking does (6--15$\times$), so the concentration on overlap belongs to the \emph{name channel}.
+On ViProKG (\%token 23.2) the random drop 23.22 $>$ name-mask 10.78 and random mention-free 22.96 $\geq$ 50\% of 8.46, so the ratio 2.06$\times$ is read as \emph{context loss} (pct\_L 99.35, L correct).
+(i)--(iii) are three pre-specified checks (recorded BEFORE running); results: (i) random drop $<$ name-mask \textbf{3/4} (fails on v2) · (ii) random ratio $\in$[0.7;1.5] \textbf{3/3} · (iii) v2 random mention-free $\geq$50\% \textbf{holds}. AdaMF-MAT ``\,--\,'' = not applicable: its text is a learned parameter and the checkpoint restores it on load. ``\,--\,'' does \emph{not} mean ``no drop''.
+\end{minipage}
+\end{table}

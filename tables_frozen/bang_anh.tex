@@ -1,0 +1,39 @@
+% SINH bởi TAY-M (TIN_278 B10) — ablation kênh ẢNH. Nguồn: BC136 (anh_wy B7/B14, 3 seed) + ❓AZ v2. XeLaTeX.
+% CẦN: \usepackage{booktabs}
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{Ablation kênh ảnh (MRR \%, 3 seed; $\pm$ = SD qua seed): tắt (\texttt{use\_image}=0) / ảnh
+thật / ảnh \emph{hoán vị} (xáo ảnh giữa thực thể, hash bền) $\times$ \{tổng, CÓ-cạnh, mention-free\}.
+\textbf{Kênh ảnh trung tính trên headline} ($|\Delta$ tổng$|\le$0.65 ở cả hai bộ) và \textbf{nội dung
+ảnh không thêm tín hiệu} (thật $\approx$ hoán vị). Ở MKG-W ảnh thật nâng CÓ-cạnh +1.41 nhưng hạ
+mention-free $-$0.67 (triệt tiêu ở tổng) --- khớp phát hiện xuyên suốt. v2: đối chứng hoán vị cùng run và tắt ảnh, 3 seed ($\lambda$=8).}
+\label{tab:anh}
+\begin{tabular}{l l r r r r r}
+\toprule
+Bộ & Nhóm & tắt & thật & hoán vị & $\Delta$(thật$-$tắt) & $\Delta$(thật$-$hoán vị) \\
+\midrule
+\multirow{3}{*}{MKG-W} & tổng & 42.15 & 42.13 & 42.23 & $-$0.03\,$\pm$0.29 & $-$0.10\,$\pm$0.26 \\
+ & CÓ-cạnh & 53.70 & 55.11 & 53.68 & +1.41\,$\pm$0.39 & +1.43\,$\pm$0.62 \\
+ & mention-free & 37.00 & 36.33 & 37.12 & $-$0.67\,$\pm$0.58 & $-$0.79\,$\pm$0.64 \\
+\midrule
+\multirow{3}{*}{MKG-Y} & tổng & 44.06 & 44.27 & 44.06 & +0.21\,$\pm$0.19 & +0.21\,$\pm$0.34 \\
+ & CÓ-cạnh & 43.61 & 43.52 & 43.12 & $-$0.10\,$\pm$1.33 & +0.39\,$\pm$0.69 \\
+ & mention-free & 44.29 & 44.65 & 44.53 & +0.36\,$\pm$0.54 & +0.12\,$\pm$0.26 \\
+\midrule
+\multirow{3}{*}{ViMMKG 2.0$^{\dagger}$} & tổng & 41.11 & 41.20 & 41.03 & +0.10\,$\pm$0.38 & +0.17\,$\pm$0.44 \\
+ & CÓ-cạnh & 50.54 & 50.59 & 50.40 & +0.04\,$\pm$0.42 & +0.19\,$\pm$0.38 \\
+ & mention-free & 37.82 & 37.93 & 37.77 & +0.12\,$\pm$0.38 & +0.16\,$\pm$0.46 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Headline W/Y/DB15K là \textbf{text-only} (\texttt{use\_image}=0); ViMMKG~2.0 headline dùng
+text+ảnh. $\pm$ = SD qua seed (nhiễu run-qua-run $\sim$0.3--0.65). Hoán vị ảnh: xáo hàng ma trận
+ảnh giữa thực thể bằng \texttt{blake2b} (seed theo train). Nguồn: BC136 (\texttt{anh\_wy}, sha
+087ff9effc6a8d72).
+$^{\dagger}$ ViMMKG~2.0 ($\lambda$=8, 3 seed, cùng run): hoán vị ảnh chỉ giữa 7{,}790 thực thể có ảnh, mặt nạ giữ nguyên; $\pm$ = SD qua seed. $\Delta$(thật$-$hoán vị) tổng +0.17 (KTC qua seed $t$, df\,=\,2 [$-$0.92; +1.26]; bootstrap theo khoá [$-$0.12; +0.46]): \emph{không phát hiện} tín hiệu từ nội dung ảnh (KTC qua seed rộng hơn ngưỡng 0.65, nên không đọc là ``tương đương''). Ô ``tắt'' của v2: 3 run \texttt{use\_image}=0 ở $\lambda$=8 (cùng cấu hình); $\Delta$(thật$-$tắt) tổng +0.10 (KTC qua seed [$-$0.86; +1.05]; bootstrap theo khoá [$-$0.18; +0.37]), tiêu chí trung tính $|\Delta|\le$0.65: ĐẠT. Đối chứng bật/tắt có sẵn đo ở $\lambda_{\text{align}}$=0 cho $\Delta$ tổng $-$0.02 [$-$0.57; +0.52].
+\end{minipage}
+\end{table}

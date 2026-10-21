@@ -1,0 +1,58 @@
+% SINH TỰ ĐỘNG bởi scripts/v3/bang_bai_chinh.py — KHÔNG sửa tay.
+% nguồn: data/experimental/v3/moc_ngoai_2026.tsv + data/experimental/v3/hits_bang.tsv | sinh 2026-10-16
+% CẦN: \usepackage{booktabs,multirow}. KHÔNG dùng threeparttable — chú thích
+% để trong minipage, vì threeparttable thiếu ở TeX tối giản (đã kiểm kpsewhich).
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\caption{Link prediction on DB15K (appendix). Reported here rather than in the main table: under our pre-registered stopping rule every configuration we trained plateaus at 40.2 MRR, below the 42.0 threshold, so DB15K is not used to support any claim. All figures in \%, copied from each paper's own table (provenance in \texttt{moc\_ngoai\_2026.tsv}). \textbf{Bold} marks the best figure in each column among \emph{peer-reviewed} work (MENTOR included), over the whole table rather than per block. Rows from venues that are not peer-reviewed are set in \emph{italics} and marked \ddag; they are never bolded. \emph{Peer} = peer-reviewed venue.}
+\label{tab:db15k}
+\begin{tabular}{l c r r r r}
+\toprule
+\multirow{2}{*}{Model} & \multirow{2}{*}{Peer} & \multicolumn{4}{c}{DB15K} \\
+\cmidrule(lr){3-6}
+ & & MRR & H@1 & H@3 & H@10 \\
+\midrule
+\multicolumn{6}{l}{\textit{uni-modal KGC}} \\
+TransE & Y & 24.86 & 12.78 & 31.48 & 47.07 \\
+RotatE & Y & 29.28 & 17.87 & 36.12 & 49.66 \\
+TuckER & Y & 33.86 & 25.33 & 37.91 & 50.38 \\
+\multicolumn{6}{l}{\textit{MMKGC — embedding / MoE}} \\
+IKRL & Y & 26.82 & 14.09 & 34.93 & 49.09 \\
+RSME & Y & 29.76 & 24.15 & 32.12 & 40.29 \\
+OTKGE & Y & 23.86 & 18.45 & 25.89 & 34.23 \\
+MoSE-AI\,\dag & Y & 37.64 & 28.14 & 39.60 & 51.63 \\
+IMF & Y & 32.25 & 24.20 & 36.00 & 48.19 \\
+AdaMF-MAT & Y & 35.14 & 25.30 & 41.11 & 52.92 \\
+MyGO & Y & 37.72 & 30.08 & 41.26 & 52.21 \\
+MoMoK & Y & 39.57 & 32.38 & 43.45 & 54.14 \\
+\emph{MoCME}\,\ddag & N & \emph{39.62} & \emph{29.71} & -- & \emph{55.36} \\
+M-Hyper & Y & 41.25 & 33.64 & 45.01 & 56.09 \\
+\emph{M2GDT}\,\ddag & N & \emph{40.54} & \emph{32.60} & \emph{44.49} & \emph{55.48} \\
+RAPC (mean$\pm$std) & Y & 41.80 & \textbf{35.49} & 44.74 & 53.96 \\
+DSoM & Y & \textbf{42.68} & 34.45 & \textbf{46.62} & \textbf{58.12} \\
+TSAM & Y & 40.50 & 32.60 & 44.36 & 55.44 \\
+MDBGF & Y & 40.58 & 32.77 & 44.23 & 55.53 \\
+DyME-KGC & Y & 40.72 & 33.30 & 44.42 & 55.02 \\
+\multicolumn{6}{l}{\textit{MLLM-based}} \\
+\emph{KGT}\,\ddag & N & \emph{42.16} & \emph{34.06} & \emph{46.03} & \emph{57.69} \\
+MgHiSal & Y & 42.66 & 35.27 & 46.32 & 57.22 \\
+\multicolumn{6}{l}{\textit{retrieval-generative}} \\
+HERGC & Y & 40.95 & 33.47 & 45.66 & 55.12 \\
+\emph{RADD}\,\ddag & N & \emph{45.02} & \emph{37.16} & \emph{48.94} & \emph{60.26} \\
+\midrule
+\textbf{MENTOR} (ours) & -- & 40.26\,$\pm$\,0.07 & 32.47 & 43.80 & 55.47 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+All baseline figures copied from each paper's own table; MRR scan \textbf{2026-10-02}, Hits@$k$ scan \textbf{2026-10-04}. \\
+\textbf{(a)} ``--'' = \textbf{not reported} by the original paper. \\
+RAPC (best run) is not listed separately: that paper reports both a single best run (MRR 42.21 on DB15K) and a multi-seed mean$\pm$std; the table uses the multi-seed figures, which are the comparable ones. \\
+\dag{} figures for MoSE-AI are a third-party reproduction (DSoM, Table 1): the original MoSE paper (EMNLP 2022) does not evaluate these three benchmarks. \\
+\ddag{} = venue is not peer-reviewed (preprint). Such rows are shown for completeness and are never counted as the best in a column. \\
+MENTOR: configuration selected on \emph{validation} per dataset (DB15K: A3' (original split)); the single-expert A3' and the 2-expert gate are compared on validation and the gate is the selected headline (single-expert shown in the ablation). 3 seeds; $\pm$ = SE, 95\% CI $\approx \pm 4.3\times$SE ($t$, df\,=\,2), on MRR. \\
+\end{minipage}
+\end{table*}

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Central ablation: overall MRR (\%) per fusion step (TuckER $\to$ base $\to$ +L $\to$ +gate), and \textbf{the gain of the +L step split by mention-overlap group} ($\Delta_L$ = MENTOR\_base+L$-$MENTOR\_base, paired per key, 3 seeds): $\Delta_L$ concentrates on the \emph{mention-overlap} split (T\_overlap) and is near 0 or negative on the \emph{mention-free} split (T\_free). DiD$_L$ = $\Delta_L^{\text{overlap}}-\Delta_L^{\text{free}}$. Across-seed CI ($t$, df=2).}
+\label{tab:trung_tam}
+\begin{tabular}{l r r r r r r r}
+\toprule
+Dataset & TuckER & base & +L & +gate & $\Delta_L$ T\_overlap & $\Delta_L$ T\_free & DiD$_L$ \\
+\midrule
+MKG-W ($\lambda$=4) & 30.39 & 38.17 & 42.15 & 42.50 & \textbf{+14.06} & $-$0.51 & +14.57 \\
+MKG-Y ($\lambda$=0.1) & 37.05 & 39.12 & 44.06 & 44.80 & \textbf{+17.13} & $-$1.10 & +18.23 \\
+DB15K ($\lambda$=2)$^\ddagger$ & -- & 39.15 & 40.43 & 41.04 & \textbf{+6.81} & $-$0.85 & +7.66 \\
+ViProKG ($\lambda$=8) & 36.80 & 40.89 & 41.20 & 41.08 & \textbf{+0.94} & +0.09 & +0.85 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+base = TuckER + \textbf{text-only} (W/Y/DB15K, use\_image 0) or text+image (v2); the alignment loss is included in base. The largest step is +L (the lexical mention channel). $\Delta_L$ concentrates on T\_overlap (+6.8 to +17.1) but is $\approx$0 or negative on T\_free for W/Y/DB. \textbf{ViProKG:} $\Delta_L$ is weak (+0.94/+0.09, DiD +0.85); the across-seed CI \textbf{covers 0} and the key bootstrap is at the boundary, differences $\le\sim$0.3 --- we do not claim that the L channel transfers to v2. +gate adds little (W +0.35/Y +0.74/DB +0.61); on v2 +gate $<$ MENTOR\_base+L, so the v2 headline is MENTOR\_base+L* (no gate). $^\ddagger$DB15K = clean-valid; the in-path $\Delta$ is valid and is not compared with the original-split appendix (same instrument). TuckER for DB15K is in the uni-modal block (not re-run).
+\end{minipage}
+\end{table}

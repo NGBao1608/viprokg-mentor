@@ -1,0 +1,47 @@
+% SINH bởi scripts/v3/sinh_mini_vi.py từ bang_vimmkg2.md — bảng VI cho mini-paper. XeLaTeX.
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4.5pt}
+\caption{Dự đoán liên kết trên \textbf{ViMMKG 2.0} (của chúng tôi), 2{,}637 triple kiểm thử = 5{,}274 truy vấn; 3 dòng mỗi mô hình: \emph{tổng\,/\,thường\,/\,lát}. Đơn vị \%. \textbf{In đậm} = vượt mốc-ngoài-mạnh-nhất từng ô (gồm TSAM) với KTC 95\% qua seed trên 0 (6/12 ô). \textbf{KHÔNG so chéo với Bảng~\ref{tab:main}}: ViMMKG~2.0 dùng kênh ảnh, 37{,}43\% triple kiểm thử là lát thuộc tính (ba benchmark chuẩn không có), và giao thức cấm so chéo cột không-cạnh.}
+\label{tab:vimmkg2}
+\begin{tabular}{l l r r r r}
+\toprule
+Mô hình & Nhóm & MRR & H@1 & H@3 & H@10 \\
+\midrule
+\textbf{MENTOR} (A3′+L, λ=8, ours) & tổng & \textbf{41.20} & \textbf{33.66} & 45.48 & \textbf{53.93} \\
+ & thường & \textbf{45.58} & \textbf{39.05} & 48.15 & \textbf{57.91} \\
+ & lát & 33.89 & 24.65 & 41.00 & 47.28 \\
+\midrule
+MENTOR − L (ablation) & tổng & 40.89 & 33.31 & 45.44 & 53.38 \\
+ & thường & 45.12 & 38.43 & 48.02 & 57.12 \\
+ & lát & 33.83 & 24.74 & 41.13 & 47.13 \\
+\midrule
+MyGO (PhoBERT đã tách từ) & tổng & 37.76 & 29.60 & 42.48 & 51.77 \\
+ & thường & 41.48 & 35.07 & 43.85 & 53.42 \\
+ & lát & 31.53 & 20.47 & 40.19 & 49.00 \\
+\midrule
+MoMoK & tổng & 32.56 & 26.07 & 35.40 & 45.05 \\
+ & thường & 34.96 & 29.75 & 36.59 & 45.02 \\
+ & lát & 28.54 & 19.93 & 33.42 & 45.09 \\
+\midrule
+TSAM & tổng & 39.42 & 31.98 & 43.17 & 52.45 \\
+ & thường & 44.35 & 37.82 & 46.86 & 56.40 \\
+ & lát & 31.17 & 22.22 & 37.02 & 45.85 \\
+\midrule
+AdaMF-MAT (our features; last ckpt, 1000 ep), 3 seed & tổng & 35.57 & 26.80 & 41.32 & 50.53 \\
+ & thường & 37.20 & 30.32 & 40.21 & 50.05 \\
+ & lát & 32.84 & 20.91 & 43.16 & 51.33 \\
+\midrule
+DSoM re-impl. (approx.), 3 seed & tổng & 38.59 & 31.01 & 43.28 & 51.10 \\
+ & thường & 40.87 & 34.91 & 42.91 & 51.89 \\
+ & lát & 34.78 & 24.48 & 43.90 & 49.78 \\
+\midrule
+TuckER (structure-only) & tổng & 36.80 & 29.67 & 40.87 & 49.11 \\
+ & thường & 39.22 & 33.63 & 41.11 & 49.60 \\
+ & lát & 32.76 & 23.05 & 40.48 & 48.29 \\
+\midrule
+prior tần suất (lát) † & lát & 33.55 & 22.19 & 42.15 & 50.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

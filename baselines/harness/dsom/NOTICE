@@ -1,0 +1,4 @@
+dsom.py is an approximate re-implementation (approx.) of DSoM (arXiv:2507.20738, MM'25), written by the
+authors from the method description because no code was released. It is covered by the MIT license of this
+repository (../../../LICENSE). It does not reproduce the published numbers and must be labelled
+"approximate re-implementation" wherever its results are shown.

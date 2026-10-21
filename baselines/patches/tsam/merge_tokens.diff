@@ -1,0 +1,27 @@
+diff --git a/merge_tokens.py b/merge_tokens.py
+--- a/merge_tokens.py
++++ b/merge_tokens.py
+@@ -46,4 +46,5 @@ def get_entity_visual_tokens(dataset, max_num):
+         if entity_to_token[key] != []:
+-            entid_tokens.append(entity_to_token[key])
+-            ent_key_mask.append(([False] * max_num))
++            s = entity_to_token[key]                       # pad to max_num
++            entid_tokens.append(s + [8192] * (max_num - len(s)))
++            ent_key_mask.append([False] * len(s) + [True] * (max_num - len(s)))
+         else:
+@@ -160,2 +161,5 @@ def get_entity_textual_tokens(dataset, max_num):
+         return get_entity_textual_tokens_db15K(dataset, max_num)
++    # per-dataset vocab/pad ids; W/Y keep BERT 30522/14999 (default).
++    _vocab = {"ViMMKG2": 64001}.get(dataset, 30522)
++    _pad = {"ViMMKG2": 8255}.get(dataset, 14999)
+     tokenized_result = json.load(open("tokens/{}-textual.json".format(dataset), "r"))
+@@ -163,3 +167,3 @@ def get_entity_textual_tokens(dataset, max_num):
+     entity_dict = load_ent_map(dataset)
+-    for i in range(30522 + 1):
++    for i in range(_vocab + 1):
+         token_dict[i] = []
+@@ -185,3 +189,3 @@ def get_entity_textual_tokens(dataset, max_num):
+             s = entity_to_token[i]
+-            entid_tokens.append(s + [14999] * (max_num - len(s)))
++            entid_tokens.append(s + [_pad] * (max_num - len(s)))
+             ent_key_mask.append(([False] * len(s) + [True] * (max_num - len(s))))

@@ -1,0 +1,49 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Link prediction on \textbf{ViProKG} (ours), 2{,}637 test triples = 5{,}274 queries. Three rows per model as required by the attribute-slice split: \emph{all} / \emph{ordinary} / \emph{slice}. Figures in \%. \textbf{Bold} = exceeds the strongest external baseline in that cell among \{MyGO+seg, MoMoK, TSAM, DSoM re-impl., AdaMF\} with a 95\% across-seed CI above zero (paired per-key, $t$, df\,=\,2, 3 seeds); per-key bootstrap (1000) agrees; a higher mean alone is not enough; the full 12-cell table is in the appendix. \textbf{These figures are not comparable with the standard-benchmark table}: MENTOR\_base+L on ViProKG uses the image channel, 37.43\% of its test triples are attribute slices (absent from the three benchmarks), and cross-dataset comparison of the mention-free column is disallowed by our protocol.}
+\label{tab:viprokg}
+\begin{tabular}{l l r r r r r}
+\toprule
+Model & Group & $n$ & MRR & H@1 & H@3 & H@10 \\
+\midrule
+\textbf{MENTOR\_base+L} ($\lambda$=8, ours) & all & 5274 & \textbf{41.20} & \textbf{33.66} & 45.48 & \textbf{53.93} \\
+ & ordinary & 3300 & \textbf{45.58} & \textbf{39.05} & 48.15 & \textbf{57.91} \\
+ & slice & 1974 & 33.89 & 24.65 & 41.00 & 47.28 \\
+\midrule
+MENTOR $-$ L (ablation) & all & 5274 & 40.89 & 33.31 & 45.44 & 53.38 \\
+ & ordinary & 3300 & 45.12 & 38.43 & 48.02 & 57.12 \\
+ & slice & 1974 & 33.83 & 24.74 & 41.13 & 47.13 \\
+\midrule
+MyGO (word-segmented PhoBERT) & all & 5274 & 37.76 & 29.60 & 42.48 & 51.77 \\
+ & ordinary & 3300 & 41.48 & 35.07 & 43.85 & 53.42 \\
+ & slice & 1974 & 31.53 & 20.47 & 40.19 & 49.00 \\
+\midrule
+MoMoK & all & 5274 & 32.56 & 26.07 & 35.40 & 45.05 \\
+ & ordinary & 3300 & 34.96 & 29.75 & 36.59 & 45.02 \\
+ & slice & 1974 & 28.54 & 19.93 & 33.42 & 45.09 \\
+\midrule
+TSAM & all & 5274 & 39.42 & 31.98 & 43.17 & 52.45 \\
+ & ordinary & 3300 & 44.35 & 37.82 & 46.86 & 56.40 \\
+ & slice & 1974 & 31.17 & 22.22 & 37.02 & 45.85 \\
+\midrule
+AdaMF-MAT (our features; last ckpt, 1000 ep), 3 seeds & all & 5274 & 35.57 & 26.80 & 41.32 & 50.53 \\
+ & ordinary & 3300 & 37.20 & 30.32 & 40.21 & 50.05 \\
+ & slice & 1974 & 32.84 & 20.91 & 43.16 & 51.33 \\
+\midrule
+DSoM re-impl.\ (approx.), 3 seeds & all & 5274 & 38.59 & 31.01 & 43.28 & 51.10 \\
+ & ordinary & 3300 & 40.87 & 34.91 & 42.91 & 51.89 \\
+ & slice & 1974 & 34.78 & 24.48 & 43.90 & 49.78 \\
+\midrule
+TuckER (structure-only) & all & 5274 & 36.80 & 29.67 & 40.87 & 49.11 \\
+ & ordinary & 3300 & 39.22 & 33.63 & 41.11 & 49.60 \\
+ & slice & 1974 & 32.76 & 23.05 & 40.48 & 48.29 \\
+\midrule
+frequency prior (attribute)$^\dagger$ & slice & 1974 & 33.55 & 22.19 & 42.15 & 50.00 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+$^\dagger$ Frequency prior (attribute triples), both directions pooled for reference; split by direction: head 1.67 / tail 65.43 --- on the attribute tail the prior exceeds every model except the approximate re-implementation DSoM re-impl.\ (see Table~\ref{tab:lat_prior}). The attribute column is not bolded.
+\end{minipage}
+\end{table}

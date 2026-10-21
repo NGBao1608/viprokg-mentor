@@ -1,0 +1,21 @@
+diff --git a/models/RelMoE.py b/models/RelMoE.py
+index e2e4e86..c6d651c 100644
+--- a/models/RelMoE.py
++++ b/models/RelMoE.py
+@@ -192,3 +192,4 @@ class RelMoE(BaseModel):
+             txt_pool = torch.nn.AdaptiveAvgPool2d(output_size=(4, 64))
+-            txt = txt_pool(args.desp.to(self.device).view(-1, 12, 32))
++            _seg = args.desp.size(1) // 32  # 384 -> 12 segments (W/Y unchanged), 768 -> 24 (v2)
++            txt = txt_pool(args.desp.to(self.device).view(-1, _seg, 32))
+             txt = txt.view(txt.size(0), -1)
+diff --git a/utils/data_loader.py b/utils/data_loader.py
+index cfdc44b..0a3e10a 100644
+--- a/utils/data_loader.py
++++ b/utils/data_loader.py
+@@ -293,2 +293,6 @@ class ConvECorpus(Corpus):
+ 
++        # additive: expose per-triple ranks when driver sets corpus._dump_ranks.
++        # Aligned to self.{val,test}_triples order. Ranking math unchanged.
++        if getattr(self, '_dump_ranks', False):
++            return metrics, [att_s, att_i, att_t, att_mm], (list(ranks_head), list(ranks_tail))
+         return metrics, [att_s, att_i, att_t, att_mm]

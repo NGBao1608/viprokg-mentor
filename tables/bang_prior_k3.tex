@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{\textbf{[EXPLORATORY · Analysis only]} OOF gate with three experts \{MENTOR\_base (S), MENTOR\_base+L (L), relation prior\} versus the two-expert gate \{MENTOR\_base, MENTOR\_base+L\} (test, 3 seeds, $t$ df\,=\,2). prior~=~$\text{base}(S) + \mu\log P(e\mid r,\text{dir})$; $(\alpha,\mu)$ chosen on valid. Read $\Delta$ \emph{only within the same run}. DB15K = clean-valid (train 75\,261). Only DB15K has a positive $\Delta$ with CI above 0; MKG-W/Y cover 0.}
+\label{tab:prior_k3}
+\begin{tabular}{l c r r l l l}
+\toprule
+Dataset & $(\alpha,\mu)^*$ & gate-2 & gate-3 & $\Delta$ overall [CI] & $\Delta$ mention-free [CI] & pick \\
+\midrule
+MKG-W & (1; 0.25) & 42.50 & 42.57 & +0.068 [$-$0.11; +0.25] & +0.098 [$-$0.17; +0.36] & prior 2/3 \\
+MKG-Y & (1; 0.5)  & 46.90$^\dagger$ & 46.93 & +0.021 [$-$0.13; +0.17] & +0.031 [$-$0.20; +0.26] & prior 3/3 \\
+DB15K & (1; 0.5)  & 41.04 & 41.50 & \textbf{+0.456} [+0.32; +0.59] & \textbf{+0.632} [+0.45; +0.82] & \textbf{prior 3/3} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Source: archived OOF-gate prior run (\texttt{kq\_prior.json}).
+$^\dagger$ MKG-Y gate-2 46.90 is a new run within this experiment and differs from the headline 44.80 (different instrument); used only for the in-run $\Delta$.
+\textbf{DO NOT} extend the claim ``the prior rescues the mention-free column'' beyond DB15K clean-valid.
+\end{minipage}
+\end{table}

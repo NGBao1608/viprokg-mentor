@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{(e) LEVEL --- min--max mention-free MRR (\%) across \{ours, MyGO, AdaMF, MoMoK, TSAM,
+DSoM re-impl.\} and our position. The ``level'' column reports only the \emph{sign}: we do NOT lead mention-free on
+MKG-W/MKG-Y (below AdaMF/TSAM) and lead on DB15K and ViProKG.}
+\label{tab:e_muc}
+\begin{tabular}{l l r r c}
+\toprule
+Dataset & min--max mention-free (model) & ours (MENTOR) & range & within 1{,}5 points? \\
+\midrule
+MKG-W      & 34.68 (DSoM re-impl.) -- 38.21 (TSAM) & 35.52 (middle)     & \textbf{3.53} & $\times$ \\
+MKG-Y      & 41.87 (MyGO) -- 45.76 (TSAM)          & 42.21 (near bottom)  & 3.89          & $\times$ \\
+DB15K      & 34.08 (AdaMF) -- 35.32 (ours)           & 35.32 (highest) & \textbf{1.24} & \checkmark \\
+ViProKG & 32.45 (MoMoK) -- 41.85 (ours)           & 41.85 (highest) & 9.40          & $\times$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Additional values (mention-free \%): TSAM W~38.21 / Y~45.76 (1 seed) / v2~41.47 (3 seeds, relational$\cdot$free); DSoM re-impl.\ W~34.68 / Y~43.72 (1 seed) / v2~38.91 (3 seeds, relational$\cdot$free); AdaMF v2~34.22
+(3 seeds). v2 uses relational$\cdot$free consistently; every value lies in [32.45; 41.85], so the v2 min--max is unchanged, but TSAM~41.47 is close to ours~41.85 (we lead v2 mention-free only narrowly). MKG-W DSoM has a degenerate policy (read with caveat). Cross-pipeline, no common-key CI yet. DB15K: common evaluation (original test), training split differs between models (labelled per cell).
+\end{minipage}
+\end{table}

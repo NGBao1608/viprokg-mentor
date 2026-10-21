@@ -1,0 +1,36 @@
+{
+  "title": "Where Do Multimodal Gains Come From? Auditing Lexical Dependence in Multimodal Knowledge Graph Completion with ViProKG and MENTOR",
+  "upload_type": "dataset",
+  "description": "Code, data (without images), frozen result tables and Kaggle notebooks for the paper \"Where Do Multimodal Gains Come From? Auditing Lexical Dependence in Multimodal Knowledge Graph Completion with ViProKG and MENTOR\". Entity descriptions come from Vietnamese Wikipedia (CC BY-SA 4.0), the graph structure from Wikidata (CC0); images are not distributed and keep their own Wikimedia Commons / Flickr licenses, logged per image. Code is MIT licensed (see LICENSE); third-party baselines are covered by baselines/NOTICE.",
+  "creators": [
+    {
+      "name": "Nguyen, Bao Gia",
+      "affiliation": "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+    },
+    {
+      "name": "Nguyen Lai, Hong Thanh",
+      "affiliation": "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+    },
+    {
+      "name": "Nguyen, Long",
+      "affiliation": "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+    }
+  ],
+  "license": "cc-by-sa-4.0",
+  "version": "1.3.0",
+  "keywords": [
+    "multimodal knowledge graph",
+    "knowledge graph completion",
+    "Vietnamese",
+    "evaluation protocol"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/NGBao1608/viprokg-mentor",
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
+}

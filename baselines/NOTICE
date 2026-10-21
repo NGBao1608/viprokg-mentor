@@ -1,0 +1,25 @@
+NOTICE — third-party baselines
+
+The MIT license in ../LICENSE does NOT apply to baselines/harness/momok/, baselines/harness/tsam/,
+baselines/momok/ and baselines/tsam/; it applies to the lines ADDED by baselines/patches/*.diff (see patches/README.md). These directories contain adapters written to run, unchanged
+except where stated, code of third parties that publish NO license file; no license text exists upstream
+that could be preserved here, so no license is granted by this repository for that third-party code, and
+none is redistributed (no clone of the upstream repositories is included; fetch them yourself).
+Rank files and run configs in baselines/{momok,tsam,dsom}/ are outputs of runs on our data (CC BY-SA 4.0,
+see ../LICENSE-DATA).
+
+Upstream sources (checked 17/10/2026 with the GitHub API: both repositories report license = none):
+
+| baseline | upstream repository | commit used | local modifications |
+|---|---|---|---|
+| MoMoK | https://github.com/zjukg/MoMoK | 99c2df114d48c79708ea0608644b685183d81bd9 (2025-06-12) | 2 files, +6/-1 lines: models/RelMoE.py (text-segment reshape for 768-d text), utils/data_loader.py (optional per-triple rank dump). `git diff` sha256-16 = 14411c6befbdc192. Shipped as a diff: `patches/momok.diff`. |
+| TSAM (Li et al., "Towards Structure-aware Model for Multi-modal Knowledge Graph Completion", arXiv:2505.21973) | https://github.com/2391134843/TSAM (code link given by the paper) | 81b1b4ab297f01b12a82e7124ac9f25ed703196f (2025-05-29, "Update README.md") | merge_tokens.py (padding of entity token lists); diff sha256-16 = f67c14ebe4ab5d5c. Shipped as a diff: `patches/tsam/merge_tokens.diff`. |
+| DSoM | no public code | - | our own approximate re-implementation, see harness/dsom/NOTICE |
+
+The paper of each baseline should be cited when its numbers are used (MoMoK: ICLR 2025, zjukg; TSAM:
+arXiv:2505.21973, "Towards Structure-aware Model for Multi-modal Knowledge Graph Completion"; DSoM:
+arXiv:2507.20738).
+
+src/mygo_reference_eval.py reproduces verbatim two functions (utils.py, blob 1cc2cb2db90f3c56e1810df29a7ba598e56bd9b1,
+458 bytes) of https://github.com/zjukg/MyGO (commit 50276d8d2bdb43496ca8685c748c59b64934efd4), which also
+publishes no license; that verbatim region is excluded from the MIT grant.

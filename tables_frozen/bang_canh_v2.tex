@@ -1,0 +1,27 @@
+% SINH bởi scripts/v3/sinh_cham_canh_v2.py (TIN_278 B8) — mức CÓ/KHÔNG + DiD vs TuckER, headline λ8.
+% Nguồn: ranks_v2/* + luoi_c nen_l8.0 + canh_v2 (cefc05167b7123d3). CẦN: booktabs.
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{Mức MRR (\%, 2 chiều = khoá) theo nhóm \textbf{CÓ/KHÔNG cạnh nhắc-tên} trên ViMMKG~2.0, 8 mô hình. \emph{gap} = CÓ $-$ KHÔNG (khoảng cách nhắc-tên của chính mô hình); \emph{gap$-$gap$_{\text{TuckER}}$} = phần vượt \textbf{độ khó hub của nền cấu trúc} (TuckER gap = +7.89). \textbf{MENTOR\_base+L} có DiD lớn nhất (+4.76); các mô hình text mạnh (TSAM, nền*) cũng vượt TuckER ($\sim$+3.9), còn MyGO/MoMoK/AdaMF/DSoM $\approx$ hoặc $\le$ TuckER. Cột KHÔNG (mention-free, T\_free) trải $\sim$9.4 điểm giữa các mô hình.}
+\label{tab:canh_v2}
+\begin{tabular}{l r r r r}
+\toprule
+Mô hình & CÓ-cạnh & KHÔNG-cạnh & gap & gap$-$gap$_{\text{TuckER}}$ \\
+\midrule
+\textbf{MENTOR} (A3$'$*, $\lambda$=8, headline) & 50.59 & 37.93 & +12.65 & \textbf{+4.76} \\
+nền* ($\lambda$=8, ablation) & 49.65 & 37.84 & +11.81 & +3.92 \\
+MyGO+seg & 43.97 & 35.59 & +8.39 & +0.49 \\
+MoMoK & 38.36 & 30.53 & +7.83 & -0.06 \\
+TSAM & 48.20 & 36.35 & +11.85 & +3.96 \\
+AdaMF-MAT & 41.31 & 33.57 & +7.73 & -0.16 \\
+DSoM re-impl.\ (approx.) & 43.46 & 36.89 & +6.57 & -1.32 \\
+TuckER (structure-only) & 42.65 & 34.76 & +7.89 & +0.00 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Mức CÓ/KHÔNG gộp hai chiều (lát+thường). \textbf{MENTOR\_base+L} có gap$-$gap$_{\text{TuckER}}$ lớn nhất (+4.76); phần lớn khoảng cách này đã có ở \emph{nền*} (+3.92, text/ảnh không-L) và ở TSAM (+3.96), nên bước +L chỉ thêm $\sim$+0.84 (khớp $\Delta_L$ v2 yếu, Bảng~\ref{tab:trung_tam}). Các baseline yếu MyGO/MoMoK/AdaMF/DSoM $\approx$ hoặc $\le$ TuckER. Cột mention-free (KHÔNG) trải $\sim$9.4 điểm. Cạnh v2 \texttt{cefc05167b7123d3}.
+\end{minipage}
+\end{table}

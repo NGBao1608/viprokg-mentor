@@ -1,0 +1,21 @@
+# generated outputs
+paper_b/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+wikipedia_attribution.ckpt.jsonl
+
+# large per-key rank files, dumps and feature tensors: distributed in the Zenodo record, not in git
+data/experimental/v3/ranks_v2/
+data/experimental/v3/che_v2_dumps/
+data/experimental/mygo_seg/
+data/from_kaggle/
+baselines/momok/
+baselines/tsam/
+baselines/dsom/
+*.pt
+.ruff_cache/
+
+# local backups of edited files
+*.bak-*

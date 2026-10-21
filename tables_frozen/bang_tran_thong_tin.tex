@@ -1,0 +1,26 @@
+% TAY-M (TIN_248 đ.2, sửa TIN_249 đ.3). Bảng trần-thông-tin — Analysis, MKG-W test 3 base seed.
+% 2 hàng; λ_align + cánh V = ghi chú dưới bảng. Nguồn: BC92 Bảng 1 (N) / BC121 §12. CẦN booktabs.
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Information-ceiling probe (Analysis, \%). MKG-W, test, 3 base seeds. The parametric prior is an exploratory probe on the A3' ($\lambda{=}0.1$) base, not a main-table entry. Labelled \textsc{exploratory}.}
+\label{tab:ceiling}
+\begin{tabular}{l r r r r}
+\toprule
+ & MRR & H@1 & H@3 & H@10 \\
+\midrule
+A3' base ($\lambda{=}0.1$) & 40.99\,$\pm$\,0.08 & 34.27 & 43.70 & 53.75 \\
+\;+ parametric prior (Qwen2.5-7B, $K{=}20$)\,[F8] & 42.98\,$\pm$\,0.16 & 36.50 & 45.66 & 55.21 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+\textsc{Exploratory} / Analysis. The prior is variant (N), on the A3' $\lambda{=}0.1$ base; every report must carry ``recognition of description text cannot be excluded''. \\
+\textbf{[F8]} The DB15K probe was run under the clean-valid protocol (train 75,261; $\lambda$ selected on valid\_sach) and is not comparable with the original-split row. The MKG-Y cell is blank because the mention-free gain does not replicate across three base seeds ($+0.0075 \pm 0.0019$, CI covering zero). Both MKG-Y and DB15K probe numbers are validation-split and are reported in Analysis only. \\
+\textbf{$\lambda_{\text{align}}$ sweep (ext G1, MKG-W valid):} sweeping $\lambda_{\text{align}}$ does not raise the ceiling --- the best new combination (42.29) does not exceed the round-1 value (42.31) (BC121 §6 / BC120 §4). \\
+\textbf{Caption-V (VLM caption replaces all text, DB15K clean-valid, 3 seeds):} no gain --- $\Delta$ total $-0.0032$ [$-0.0072$; $+0.0009$], $\Delta$ mention-free $-0.0072$ [$-0.0151$; $+0.0007$]; 3 seeds, clean-valid, CI covering zero, negative sign in all 3 seeds, EN not locked (KHOA\_CHU §14 / BC108 §3.2). \texttt{V\_hoanvi} only rules out the caption-is-noise hypothesis. Forbidden: ``equivalent'' / ``images hurt'' / ``stable''. \\
+Sources: BC92 Table 1 (base + prior (N), 3 base seeds); BC121 §12 (prior label). \\
+\end{minipage}
+\end{table}

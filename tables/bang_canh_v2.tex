@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{MRR level (\%, 2 directions = keys) by \textbf{mention-overlap / mention-free} split on ViProKG, 8 models. \emph{gap} = overlap $-$ free (the model's own mention gap); \emph{gap$-$gap$_{\text{TuckER}}$} = the part beyond the \textbf{hub difficulty of the structural base} (TuckER gap = +7.89). \textbf{MENTOR\_base+L} has the largest DiD (+4.76); strong text models (TSAM, MENTOR\_base*) also exceed TuckER ($\sim$+3.9), while MyGO/MoMoK/AdaMF/DSoM are $\approx$ or $\le$ TuckER. The mention-free column (T\_free) spans $\sim$9.4 points across models.}
+\label{tab:canh_v2}
+\begin{tabular}{l r r r r}
+\toprule
+Model & mention-overlap & mention-free & gap & gap$-$gap$_{\text{TuckER}}$ \\
+\midrule
+\textbf{MENTOR\_base+L*} ($\lambda$=8, headline) & 50.59 & 37.93 & +12.65 & \textbf{+4.76} \\
+MENTOR\_base* ($\lambda$=8, ablation) & 49.65 & 37.84 & +11.81 & +3.92 \\
+MyGO+seg & 43.97 & 35.59 & +8.39 & +0.49 \\
+MoMoK & 38.36 & 30.53 & +7.83 & -0.06 \\
+TSAM & 48.20 & 36.35 & +11.85 & +3.96 \\
+AdaMF-MAT & 41.31 & 33.57 & +7.73 & -0.16 \\
+DSoM re-impl.\ (approx.) & 43.46 & 36.89 & +6.57 & -1.32 \\
+TuckER (structure-only) & 42.65 & 34.76 & +7.89 & +0.00 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Overlap/free levels pool both directions (attribute + relational triples). \textbf{MENTOR\_base+L} has the largest gap$-$gap$_{\text{TuckER}}$ (+4.76); most of this gap is already present in \emph{MENTOR\_base*} (+3.92, text/image without L) and in TSAM (+3.96), so the +L step adds only $\sim$+0.84 (consistent with the weak v2 $\Delta_L$, Table~\ref{tab:trung_tam}). The weak baselines MyGO/MoMoK/AdaMF/DSoM are $\approx$ or $\le$ TuckER. The mention-free column spans $\sim$9.4 points. Mention edges v2 (file hash \texttt{cefc05167b7123d3}).
+\end{minipage}
+\end{table}

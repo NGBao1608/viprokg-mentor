@@ -1,0 +1,29 @@
+% SINH bởi TAY-M (TIN_262 A) — prior K=3. Nguồn: BC122 §1. Nhãn: KHÁM PHÁ · Analysis · DB15K clean-valid. Dùng XeLaTeX.
+% CẦN: \usepackage{booktabs}
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{\textbf{[KHÁM PHÁ · chỉ Analysis]} Cổng OOF ba chuyên gia \{nền(S), A3$'$(L),
+prior quan hệ\} so cổng hai chuyên gia \{nền, A3$'$\} (test, 3 seed, $t$ df\,=\,2). prior~=~
+$\text{nền}(S) + \mu\log P(e\mid r,\text{dir})$; $(\alpha,\mu)$ chọn trên valid. Chỉ đọc $\Delta$
+\emph{trong cùng run}. DB15K = clean-valid (train 75\,261). Chỉ DB15K có $\Delta$ dương với
+KTC trên 0; MKG-W/Y ôm 0.}
+\label{tab:prior_k3}
+\begin{tabular}{l c r r l l l}
+\toprule
+Bộ & $(\alpha,\mu)^*$ & cổng-2 & cổng-3 & $\Delta$ tổng [KTC] & $\Delta$ KHÔNG-cạnh [KTC] & pick \\
+\midrule
+MKG-W & (1; 0.25) & 42.50 & 42.57 & +0.068 [$-$0.11; +0.25] & +0.098 [$-$0.17; +0.36] & prior 2/3 \\
+MKG-Y & (1; 0.5)  & 46.90$^\dagger$ & 46.93 & +0.021 [$-$0.13; +0.17] & +0.031 [$-$0.20; +0.26] & prior 3/3 \\
+DB15K & (1; 0.5)  & 41.04 & 41.50 & \textbf{+0.456} [+0.32; +0.59] & \textbf{+0.632} [+0.45; +0.82] & \textbf{prior 3/3} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Nguồn: \texttt{cong\_oof\_prior\_out.zip} $\to$ \texttt{result\_prior/kq\_prior.json} (BC122 §1).
+$^\dagger$ MKG-Y cổng-2 46.90 là run mới trong chính thí nghiệm này, khác headline 44.80 (dụng cụ
+khác, BC132 §B); chỉ dùng cho $\Delta$ trong-đường. \textbf{CẤM} khái quát ``prior cứu cột khái
+quát hoá'' ngoài DB15K clean-valid.
+\end{minipage}
+\end{table}

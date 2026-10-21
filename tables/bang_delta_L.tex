@@ -1,0 +1,41 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Gain of the L channel measured as a paired $\Delta$ \emph{within the same run}: $\Delta$(MENTOR\_base+L $-$ MENTOR\_base) per key (MRR, points \%), 3 seeds. Across-seed CI ($t$, df\,=\,2) \emph{and} paired key bootstrap (1000 resamples). \textbf{The L channel gives +6.8 to +17.1 points on the mention-overlap split but $-$0.5 to $-$1.1 on mention-free} (MKG-Y/DB15K bootstrap entirely below 0): the gain concentrates on the mention split, DiD(L)~=~$\Delta_{\text{overlap}}-\Delta_{\text{free}}$ = +7.7 to +18.2.}
+\label{tab:delta_L}
+\begin{tabular}{l l r l l}
+\toprule
+Dataset & Group & $\Delta$(MENTOR\_base+L$-$MENTOR\_base) & across-seed CI & key bootstrap \\
+\midrule
+\multirow{4}{*}{MKG-W} & overall & +3.99 & [+2.86; +5.11] & [+3.46; +4.55] \\
+ & mention-overlap & \textbf{+14.06} & [+12.76; +15.35] & [+12.74; +15.44] \\
+ & mention-free & \textbf{$-$0.51} & [$-$1.57; +0.56] & [$-$1.03; +0.04] \\
+ & DiD(L) & \textbf{+14.57} & \multicolumn{2}{l}{overlap $\gg$ free, CIs separate} \\
+\midrule
+\multirow{4}{*}{MKG-Y} & overall & +4.94 & [+4.52; +5.36] & [+4.25; +5.60] \\
+ & mention-overlap & \textbf{+17.13} & [+12.81; +21.45] & [+15.50; +18.78] \\
+ & mention-free & \textbf{$-$1.10} & [$-$2.61; +0.42] & [$-$1.60; $-$0.56] \\
+ & DiD(L) & \textbf{+18.23} & \multicolumn{2}{l}{overlap $\gg$ free} \\
+\midrule
+\multirow{4}{*}{DB15K} & overall & +1.28 & [+0.98; +1.58] & [+1.02; +1.53] \\
+ & mention-overlap & \textbf{+6.81} & [+5.44; +8.17] & [+6.17; +7.48] \\
+ & mention-free & \textbf{$-$0.85} & [$-$0.97; $-$0.73] & [$-$1.10; $-$0.62] \\
+ & DiD(L) & \textbf{+7.66} & \multicolumn{2}{l}{overlap $\gg$ free} \\
+\midrule
+\multirow{4}{*}{ViProKG} & overall & +0.31 & [$-$0.15; +0.77] & [+0.01; +0.60] \\
+ & mention-overlap & \textbf{+0.94} & [$-$0.68; +2.56] & [+0.22; +1.76] \\
+ & mention-free & +0.09 & [$-$0.72; +0.90] & [$-$0.22; +0.41] \\
+ & DiD(L) & \textbf{+0.85} & \multicolumn{2}{l}{overlap $>$ free (weak L on v2)} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+\textbf{DiD(L) is positive on 4/4 datasets} (overlap $>$ free consistently), but the magnitude on W/Y/DB (+7.7 to +18.2)
+is much larger than on v2 (+0.85). Reference \emph{hub difficulty}: structure-only TuckER has overlap$-$free = \textbf{+7.89}
+(overlap 42.65 $-$ free 34.76, 3 seeds); MENTOR\_base+L* $\lambda$8 has +12.65 $\Rightarrow$ the text+L channel adds
+\textbf{+4.76} points to the overlap/mention-free gap beyond the structural base level. The key bootstrap is
+tighter than the across-seed CI and gives the same conclusion --- the two measures (seed, key) are not mixed.
+\end{minipage}
+\end{table}

@@ -1,0 +1,6 @@
+NOTICE — not covered by the MIT license of this repository.
+
+These adapter scripts drive third-party code that publishes no license (see ../../NOTICE for the
+upstream repository, commit and local modifications). They import the upstream modules at run time and
+do not include upstream source; the upstream code is not redistributed. No license is granted here for
+the upstream code. Keep this notice with the files.

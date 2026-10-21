@@ -1,0 +1,20 @@
+{
+ "42": {
+  "sha16": "355356b66fadec07",
+  "fixed_points": 0,
+  "rows_changed": 7759,
+  "n_image_entities": 7790
+ },
+ "7": {
+  "sha16": "5dee4c1281edf82f",
+  "fixed_points": 0,
+  "rows_changed": 7765,
+  "n_image_entities": 7790
+ },
+ "2024": {
+  "sha16": "b3f116f1b0ccda05",
+  "fixed_points": 0,
+  "rows_changed": 7750,
+  "n_image_entities": 7790
+ }
+}

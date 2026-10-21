@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it using the metadata below."
+title: "Where Do Multimodal Gains Come From? Auditing Lexical Dependence in Multimodal Knowledge Graph Completion with ViProKG and MENTOR"
+type: software
+version: 1.3.0
+date-released: 2026-10-20
+license: MIT
+authors:
+  - family-names: Nguyen
+    given-names: Bao Gia
+    affiliation: "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+  - family-names: Nguyen Lai
+    given-names: Hong Thanh
+    affiliation: "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+  - family-names: Nguyen
+    given-names: Long
+    affiliation: "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+contact:
+  - family-names: Nguyen
+    given-names: Long
+    affiliation: "Faculty of Information Technology, University of Science, VNU-HCM, Ho Chi Minh City, Vietnam"
+repository-code: "https://github.com/NGBao1608/viprokg-mentor"
+abstract: >-
+  Code, data (without images), frozen result tables and notebooks for the paper "Where Do Multimodal Gains Come
+  From? Auditing Lexical Dependence in Multimodal Knowledge Graph Completion with ViProKG and MENTOR".
+  Code is MIT licensed; data is CC BY-SA 4.0 (see LICENSE-DATA); images are not distributed.
+keywords:
+  - multimodal knowledge graph
+  - knowledge graph completion
+  - Vietnamese
+  - evaluation protocol

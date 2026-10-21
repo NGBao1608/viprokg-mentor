@@ -1,0 +1,47 @@
+% SINH bởi TAY-M (TIN_272 A1 / TIN_273 A10) — Δ(A3′−nền) ghép cặp. Nguồn: cong_oof_prior_out.zip. XeLaTeX.
+% CẦN: \usepackage{booktabs,multirow}
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Độ lợi kênh L đo bằng $\Delta$ ghép cặp \emph{trong cùng một run}: $\Delta$(A3$'$ $-$ nền)
+per-key (MRR, điểm \%), 3 seed. KTC qua seed ($t$, df\,=\,2) \emph{và} bootstrap ghép cặp qua khóa
+(1000 lần). \textbf{Kênh L cho +6.8 đến +17.1 điểm ở nhóm CÓ-cạnh nhưng $-$0.5 đến $-$1.1 ở
+KHÔNG-cạnh} (MKG-Y/DB15K bootstrap hoàn toàn dưới 0): độ lợi dồn vào nhóm nhắc-tên,
+DiD(L)~=~$\Delta_{\text{CÓ}}-\Delta_{\text{KHÔNG}}$ = +7.7 đến +18.2.}
+\label{tab:delta_L}
+\begin{tabular}{l l r l l}
+\toprule
+Bộ & Nhóm & $\Delta$(A3$'-$nền) & KTC qua seed & bootstrap qua khóa \\
+\midrule
+\multirow{4}{*}{MKG-W} & tổng & +3.99 & [+2.86; +5.11] & [+3.46; +4.55] \\
+ & CÓ-cạnh & \textbf{+14.06} & [+12.76; +15.35] & [+12.74; +15.44] \\
+ & KHÔNG-cạnh & \textbf{$-$0.51} & [$-$1.57; +0.56] & [$-$1.03; +0.04] \\
+ & DiD(L) & \textbf{+14.57} & \multicolumn{2}{l}{CÓ $\gg$ KHÔNG, KTC tách} \\
+\midrule
+\multirow{4}{*}{MKG-Y} & tổng & +4.94 & [+4.52; +5.36] & [+4.25; +5.60] \\
+ & CÓ-cạnh & \textbf{+17.13} & [+12.81; +21.45] & [+15.50; +18.78] \\
+ & KHÔNG-cạnh & \textbf{$-$1.10} & [$-$2.61; +0.42] & [$-$1.60; $-$0.56] \\
+ & DiD(L) & \textbf{+18.23} & \multicolumn{2}{l}{CÓ $\gg$ KHÔNG} \\
+\midrule
+\multirow{4}{*}{DB15K} & tổng & +1.28 & [+0.98; +1.58] & [+1.02; +1.53] \\
+ & CÓ-cạnh & \textbf{+6.81} & [+5.44; +8.17] & [+6.17; +7.48] \\
+ & KHÔNG-cạnh & \textbf{$-$0.85} & [$-$0.97; $-$0.73] & [$-$1.10; $-$0.62] \\
+ & DiD(L) & \textbf{+7.66} & \multicolumn{2}{l}{CÓ $\gg$ KHÔNG} \\
+\midrule
+\multirow{4}{*}{ViMMKG 2.0} & tổng & +0.31 & [$-$0.15; +0.77] & [+0.01; +0.60] \\
+ & CÓ-cạnh & \textbf{+0.94} & [$-$0.68; +2.56] & [+0.22; +1.76] \\
+ & KHÔNG-cạnh & +0.09 & [$-$0.72; +0.90] & [$-$0.22; +0.41] \\
+ & DiD(L) & \textbf{+0.85} & \multicolumn{2}{l}{CÓ $>$ KHÔNG (L yếu trên v2)} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+\textbf{DiD(L) dương ở 4/4 bộ} (hướng CÓ $>$ KHÔNG nhất quán), nhưng biên độ W/Y/DB (+7.7 đến +18.2)
+lớn hơn hẳn v2 (+0.85). Tham chiếu \emph{độ khó hub}: TuckER cấu trúc có mức CÓ$-$KHÔNG = \textbf{+7.89}
+(CÓ 42.65 $-$ KHÔNG 34.76, 3 seed); A3$'$* $\lambda$8 có +12.65 $\Rightarrow$ kênh text+L thêm
+\textbf{+4.76} điểm vào khoảng cách có-cạnh/mention-free, vượt mức nền cấu trúc. Bootstrap qua khóa
+chặt hơn KTC qua seed và cho cùng kết luận --- hai cách đo (seed, khóa) không lẫn.
+\end{minipage}
+\end{table}

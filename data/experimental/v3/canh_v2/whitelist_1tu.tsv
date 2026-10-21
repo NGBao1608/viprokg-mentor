@@ -1,0 +1,77 @@
+# TIN_73 việc (2) nhánh KHÔNG — whitelist TÊN-RIÊNG cho rào zipf nhãn 1 từ.
+# Không có text còn chữ hoa cho BẤT KỲ bộ nào (đã kiểm: bản roberta/llama CŨNG
+# đã lowercase; xem TIN_THI_HANH_74 §2), nên rào viết-hoa không thi hành được.
+# Gán nhãn TAY từ 1-2 ví dụ/nhãn ⇒ TẠM THỜI. nhan_tay: TEN-RIENG (được bỏ qua rào
+# zipf) / DANH-TU-CHUNG / KHAC (không whitelist, lý do khác danh-từ-chung).
+bo	nhan	dang_khop	zipf	n_canh_mat	nhan_tay	ly_do
+DB15K	Film	film	5.20	4097	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	World	world	5.89	2120	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Music	music	5.52	1475	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Major	major	5.30	1237	KHAC	TÍNH TỪ
+DB15K	University	university	5.39	1209	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	History	history	5.39	915	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	York	york	5.37	855	KHAC	KHỚP-MẢNH: mọi ví dụ là 'new york', không phải thành phố York
+DB15K	Government	government	5.57	623	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Family	family	5.66	611	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	England	england	5.12	610	TEN-RIENG	quốc gia; vd 'england was largest investor american land development'
+DB15K	11	11	5.32	587	KHAC	SỐ
+DB15K	Science	science	5.12	579	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	California	california	5.00	565	TEN-RIENG	bang; vd 'beverly hills california pickford center motion picture'
+DB15K	Star	star	5.19	505	KHAC	biên: 'movie star' / 'lone star state' dùng chung
+DB15K	Research	research	5.39	500	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Europe	europe	5.04	486	TEN-RIENG	châu lục; vd 'sovereign country western europe that includes overseas'
+DB15K	Art	art	5.29	474	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Artist	artist	4.80	468	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	President	president	5.45	443	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	London	london	5.27	442	TEN-RIENG	thành phố; vd 'he was stationed london minister court st james'
+DB15K	Business	business	5.56	426	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Acting	acting	4.82	423	KHAC	ĐỘNG TỪ/DANH ĐỘNG TỪ
+DB15K	Canada	canada	4.97	406	TEN-RIENG	quốc gia; vd 'washington dc central north america canada mexico'
+DB15K	Island	island	5.01	405	KHAC	biên: 'manhattan island' là phần của tên khác
+DB15K	Video	video	5.43	403	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Law	law	5.46	357	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	India	india	5.04	336	TEN-RIENG	quốc gia; vd 'ancient civilizations including india china persia greece'
+DB15K	Author	author	4.95	332	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Sea	sea	5.06	331	KHAC	biên: 'mediterranean sea' là phần của tên khác
+DB15K	Official	official	5.14	328	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	White	white	5.51	320	KHAC	TÍNH TỪ
+DB15K	Germany	germany	4.90	291	TEN-RIENG	quốc gia; vd 'attracting immigrant farmers germany sweden railroad'
+DB15K	Red	red	5.32	273	KHAC	TÍNH TỪ
+DB15K	Australia	australia	5.06	270	TEN-RIENG	quốc gia; vd 'united kingdom united states canada australia ireland'
+DB15K	Japan	japan	4.89	237	TEN-RIENG	quốc gia; vd 'iberia transatlantic market japan airlines qantas'
+DB15K	Chicago	chicago	4.83	227	TEN-RIENG	thành phố; vd 'illinois city chicago metropolitan area'
+DB15K	Technology	technology	5.09	213	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Blue	blue	5.13	208	KHAC	TÍNH TỪ
+DB15K	Green	green	5.13	200	KHAC	TÍNH TỪ
+DB15K	China	china	5.10	193	TEN-RIENG	quốc gia; vd 'including india china persia greece west'
+DB15K	Texas	texas	4.89	190	TEN-RIENG	bang; vd 'moved his family west texas entered oil business'
+DB15K	Christian	christian	4.88	189	KHAC	TÍNH TỪ
+DB15K	Dance	dance	4.93	179	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Engineering	engineering	4.80	174	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Paris	paris	4.82	158	TEN-RIENG	thành phố; vd 'its capital paris nation s largest city'
+DB15K	Sir	sir	5.06	151	KHAC	TƯỚC HIỆU
+DB15K	Earth	earth	5.06	150	KHAC	biên: 'most populated country earth' dùng chung, không nhắc hành tinh
+DB15K	Police	police	5.33	149	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Friends	friends	5.43	148	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+DB15K	Politics	politics	4.87	147	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-W	Film	film	5.20	5754	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-W	Music	music	5.52	1279	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-W	York	york	5.37	392	KHAC	KHỚP-MẢNH: mọi ví dụ là 'new york'
+MKG-W	11	11	5.32	368	KHAC	SỐ
+MKG-W	8½	8	5.48	356	KHAC	LỖI CHUẨN HOÁ: '8½' -> dạng '8' (ký tự ½ bị bỏ) nên khớp mọi 'july 8 1965'
+MKG-W	Crime	crime	4.89	303	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-W	Japan	japan	4.89	267	TEN-RIENG	quốc gia; vd 'maritime borders taiwan north japan northeast palau'
+MKG-W	London	london	5.27	263	TEN-RIENG	thành phố; vd 'english cinematographer born london 26 july 1896'
+MKG-W	France	france	4.94	245	TEN-RIENG	quốc gia; vd 'premiered limited release france 29 november 2006'
+MKG-W	White	white	5.51	178	KHAC	TÍNH TỪ
+MKG-W	G	g	5.00	155	KHAC	CHỮ CÁI ĐẦU: 'm g ramachandran'
+MKG-W	Official	official	5.14	151	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-W	Blue	blue	5.13	135	KHAC	TÍNH TỪ
+MKG-W	Russia	russia	4.93	93	TEN-RIENG	quốc gia; vd 'yekaterinburg sverdlovsk oblast russia they replaced'
+MKG-W	Covered	covered	4.83	43	KHAC	ĐỘNG TỪ
+MKG-W	Going!	going	5.94	41	KHAC	ĐỘNG TỪ
+MKG-W	Getting	getting	5.57	17	KHAC	ĐỘNG TỪ
+MKG-W	ANTI-	anti	5.01	1	TEN-RIENG	hãng đĩa; vd 'sister labels also such anti burning heart records' (n=1)
+MKG-Y	Nice	nice	5.37	12	TEN-RIENG	CLB/thành phố; vd 'defeated ligue 1 clubs nice auxerre its way final'
+MKG-Y	less	less	5.49	2	DANH-TU-CHUNG	mọi ví dụ quan sát được là dùng chung
+MKG-Y	11	11	5.32	1	KHAC	SỐ

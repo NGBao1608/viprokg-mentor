@@ -1,0 +1,37 @@
+% SINH bởi TAY-M (TIN_262 A) — (e) CHE. Nguồn: baocao/BC123b2_CHE_V2_LAN2.md §3. Dùng XeLaTeX.
+% CẦN: \usepackage{booktabs}
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Rớt MRR (điểm \%) khi \textbf{che tên đáp án} trên cấu hình headline MENTOR
+(3 seed, TEST). Che tên dồn vào nhóm \emph{CÓ cạnh nhắc-tên} ở ba bộ chuẩn (tỷ 6{,}3--14{,}9$\times$,
+đạt ngưỡng tiền đăng ký); trên ViMMKG~2.0 che vẫn dồn CÓ-cạnh (17{,}43 $>$ 8{,}46) nhưng tỷ
+2{,}06$\times$ dưới ngưỡng, do \%token che cao (23{,}2) cắt cả ngữ cảnh. AdaMF-MAT không áp dụng
+che (text là tham số học, checkpoint ghi đè).}
+\label{tab:e_che}
+\begin{tabular}{l r r r r r r r c c}
+\toprule
+ & \multicolumn{2}{c}{rớt tổng} & & & \multicolumn{2}{c}{tỷ CÓ/KHÔNG} & & & \\
+\cmidrule(lr){2-3}\cmidrule(lr){6-7}
+Bộ & che tên & \emph{ng.nhiên}$^{\S}$ & CÓ-cạnh & KHÔNG-cạnh & che tên & \emph{ng.nhiên} & \%token che & ngưỡng & đạt \\
+\midrule
+MKG-W          & 10.64 & 3.67  & 29.06 & 2.43 & \textbf{11.98}$\times$ & 1.28 & 4.6  & $\geq$5$\times$ & \checkmark \\
+MKG-Y          & 10.30 & 2.90  & 27.39 & 1.84 & \textbf{14.90}$\times$ & 0.99 & 3.0  & $\geq$5$\times$ & \checkmark \\
+DB15K          & 7.52  & 3.80  & 19.15 & 3.04 & \textbf{6.31}$\times$  & 0.93 & 8.7  & $\geq$5$\times$ & \checkmark \\
+ViMMKG 2.0     & 10.78 & 23.22 & 17.43 & \textbf{8.46} & \textbf{2.06}$\times$ & 1.04 & \textbf{23.2} & $\geq$3$\times$ & $\times$ \\
+AdaMF-MAT      & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Nguồn: BC123b-2 §3 (W/Y/DB + ViMMKG~2.0 lần 2, dụng cụ đúng, khớp bit \texttt{che2\_kq.json}).
+$^{\S}$Cột \emph{ng.nhiên} = đối chứng \textbf{che NGẪU NHIÊN} cùng \%token mỗi mô tả nhưng
+\emph{không chạm token tên} (3 seed, BC134). Then chốt: rớt ngẫu-nhiên $<$ che-tên ở ba bộ chuẩn,
+và \textbf{tỷ CÓ/KHÔNG ngẫu-nhiên $\approx$1} (W 1.28 / Y 0.99 / DB 0.93) --- che ngẫu nhiên
+\emph{không} dồn CÓ-cạnh như che tên (6--15$\times$), nên tập trung CÓ-cạnh là của \emph{kênh tên}.
+Trên ViMMKG~2.0 (\%token 23.2) rớt ngẫu-nhiên 23.22 $>$ che-tên 10.78 và KHÔNG-cạnh ngẫu 22.96 $\geq$ 50\% của 8.46, nên tỷ 2.06$\times$ đọc là \emph{mất ngữ cảnh} (pct\_L 99.35, L đúng).
+(i)--(iii) là ba khai trước (ghi TRƯỚC khi chạy, TIN\_266 A); kết quả: (i) rớt ngẫu $<$ che-tên \textbf{3/4} (sai ở v2) · (ii) tỷ ngẫu $\in$[0.7;1.5] \textbf{3/3} · (iii) v2 KHÔNG-cạnh ngẫu $\geq$50\% \textbf{đúng}. AdaMF-MAT ``\,--\,'' = không áp dụng: text là tham số học được, checkpoint
+khôi phục nó khi load (KHOA\_CHU §13). ``\,--\,'' \emph{không} nghĩa ``không rớt''.
+\end{minipage}
+\end{table}

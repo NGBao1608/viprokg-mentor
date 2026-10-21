@@ -1,0 +1,23 @@
+% SINH bởi scripts/v3/sinh_bang_trung_tam.py (TIN_278 B7) — ablation + Δ_L theo nhóm cạnh.
+% Nguồn: ablation_chain.json (tổng, BC121) + bang_delta_L (Δ_L scores run). CẦN booktabs.
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Bảng ablation trung tâm: MRR tổng (\%) theo từng bước hợp nhất (TuckER $\to$ base $\to$ +L $\to$ +gate), và \textbf{độ lợi của bước +L tách theo nhóm cạnh} ($\Delta_L$ = A3$'-$nền, ghép cặp per-key, 3 seed): $\Delta_L$ dồn vào nhóm \emph{có cạnh nhắc-tên} (T\_overlap), gần 0 hoặc âm ở \emph{mention-free} (T\_free). DiD$_L$ = $\Delta_L^{\text{overlap}}-\Delta_L^{\text{free}}$. KTC qua seed ($t$, df=2).}
+\label{tab:trung_tam}
+\begin{tabular}{l r r r r r r r}
+\toprule
+Bộ & TuckER & base & +L & +gate & $\Delta_L$ T\_overlap & $\Delta_L$ T\_free & DiD$_L$ \\
+\midrule
+MKG-W ($\lambda$=4) & 30.39 & 38.17 & 42.15 & 42.50 & \textbf{+14.06} & $-$0.51 & +14.57 \\
+MKG-Y ($\lambda$=0.1) & 37.05 & 39.12 & 44.06 & 44.80 & \textbf{+17.13} & $-$1.10 & +18.23 \\
+DB15K ($\lambda$=2)$^\ddagger$ & -- & 39.15 & 40.43 & 41.04 & \textbf{+6.81} & $-$0.85 & +7.66 \\
+ViMMKG 2.0 ($\lambda$=8) & 36.80 & 40.89 & 41.20 & 41.08 & \textbf{+0.94} & +0.09 & +0.85 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+base = TuckER + \textbf{text-only} (W/Y/DB15K, use\_image 0) hoặc text+ảnh (v2); +align gộp trong base. Bước lớn nhất = +L (kênh lexical mention). $\Delta_L$ dồn vào T\_overlap (+6.8 đến +17.1) nhưng $\approx$0/âm ở T\_free trên W/Y/DB. \textbf{ViMMKG 2.0:} $\Delta_L$ yếu (+0.94/+0.09, DiD +0.85); KTC qua seed \textbf{ôm 0}, bootstrap khoá ở biên, hiệu $\le\sim$0.3 --- không claim kênh L chuyển sang v2. +gate thêm nhỏ (W +0.35/Y +0.74/DB +0.61); v2 +gate $<$ A3$'$ nên headline v2 = A3$'$* (không gate). $^\ddagger$DB15K = clean-valid; $\Delta$ trong-đường hợp lệ, không so phụ lục split gốc (cùng dụng cụ). TuckER DB15K ở khối uni-modal (không chạy lại).
+\end{minipage}
+\end{table}

@@ -1,0 +1,29 @@
+% SINH bởi TAY-M (TIN_262 A / TIN_261 đ.2) — (e) MỨC. Nguồn: paper_b/bang_e_muc.md (← BC95/BC127/BC130). Dùng XeLaTeX.
+% CẦN: \usepackage{booktabs}
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{(e) MỨC — min--max MRR cột KHÔNG-cạnh (\%) giữa \{ta, MyGO, AdaMF, MoMoK, TSAM,
+DSoM re-impl.\} và vị trí của ta. Cột ``mức'' chỉ báo \emph{dấu}: ta KHÔNG dẫn KHÔNG-cạnh ở
+MKG-W/MKG-Y (dưới AdaMF/TSAM), dẫn ở DB15K và ViMMKG~2.0.}
+\label{tab:e_muc}
+\begin{tabular}{l l r r c}
+\toprule
+Bộ & min--max KHÔNG-cạnh (model) & ta (MENTOR) & biên độ & trong 1{,}5 điểm? \\
+\midrule
+MKG-W      & 34.68 (DSoM re-impl.) -- 38.21 (TSAM) & 35.52 (giữa)     & \textbf{3.53} & $\times$ \\
+MKG-Y      & 41.87 (MyGO) -- 45.76 (TSAM)          & 42.21 (gần đáy)  & 3.89          & $\times$ \\
+DB15K      & 34.08 (AdaMF) -- 35.32 (ta)           & 35.32 (cao nhất) & \textbf{1.24} & \checkmark \\
+ViMMKG 2.0 & 32.45 (MoMoK) -- 41.85 (ta)           & 41.85 (cao nhất) & 9.40          & $\times$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Giá trị thêm (KHÔNG-cạnh \%): TSAM W~38.21 / Y~45.76 (1 seed) / v2~41.47 (3 seed, thường$\cdot$KHÔNG);
+DSoM re-impl.\ W~34.68 / Y~43.72 (1 seed) / v2~38.91 (3 seed, thường$\cdot$KHÔNG); AdaMF v2~34.22
+(3 seed). v2 dùng thường$\cdot$KHÔNG nhất quán (TIN\_278 B9); mọi giá trị trong [32.45; 41.85] nên
+min--max v2 không đổi, nhưng TSAM~41.47 sát ta~41.85 (ta chỉ nhỉnh mention-free v2). MKG-W DSoM policy degenerate (đọc với caveat). Cross-pipeline, chưa KTC
+chung-khoá. DB15K: eval chung (test gốc), train split lệch giữa model (nhãn từng ô, BC130/§5).
+\end{minipage}
+\end{table}

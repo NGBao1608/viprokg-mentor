@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{Image-channel ablation (MRR \%, 3 seeds; $\pm$ = SD across seeds): off (\texttt{use\_image}=0) / real images / \emph{permuted} images (images shuffled across entities, stable hash) $\times$ \{overall, mention-overlap, mention-free\}. \textbf{The image channel is neutral on the headline} ($|\Delta$ overall$|\le$0.65 on both sets) and \textbf{image content adds no signal} (real $\approx$ permuted). On MKG-W real images raise mention-overlap by +1.41 but lower mention-free by $-$0.67 (cancelling in the total) --- consistent with the main finding. v2: same-run permutation control and images-off runs, 3 seeds ($\lambda$=8).}
+\label{tab:anh}
+\begin{tabular}{l l r r r r r}
+\toprule
+Dataset & Group & off & real & permuted & $\Delta$(real$-$off) & $\Delta$(real$-$permuted) \\
+\midrule
+\multirow{3}{*}{MKG-W} & overall & 42.15 & 42.13 & 42.23 & $-$0.03\,$\pm$0.29 & $-$0.10\,$\pm$0.26 \\
+ & mention-overlap & 53.70 & 55.11 & 53.68 & +1.41\,$\pm$0.39 & +1.43\,$\pm$0.62 \\
+ & mention-free & 37.00 & 36.33 & 37.12 & $-$0.67\,$\pm$0.58 & $-$0.79\,$\pm$0.64 \\
+\midrule
+\multirow{3}{*}{MKG-Y} & overall & 44.06 & 44.27 & 44.06 & +0.21\,$\pm$0.19 & +0.21\,$\pm$0.34 \\
+ & mention-overlap & 43.61 & 43.52 & 43.12 & $-$0.10\,$\pm$1.33 & +0.39\,$\pm$0.69 \\
+ & mention-free & 44.29 & 44.65 & 44.53 & +0.36\,$\pm$0.54 & +0.12\,$\pm$0.26 \\
+\midrule
+\multirow{3}{*}{ViProKG$^{\dagger}$} & overall & 41.11 & 41.20 & 41.03 & +0.10\,$\pm$0.38 & +0.17\,$\pm$0.44 \\
+ & mention-overlap & 50.54 & 50.59 & 50.40 & +0.04\,$\pm$0.42 & +0.19\,$\pm$0.38 \\
+ & mention-free & 37.82 & 37.93 & 37.77 & +0.12\,$\pm$0.38 & +0.16\,$\pm$0.46 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize\raggedright
+Headline W/Y/DB15K is \textbf{text-only} (\texttt{use\_image}=0); the ViProKG headline uses
+text+image. $\pm$ = SD across seeds (run-to-run noise $\sim$0.3--0.65). Image permutation: rows
+of the image matrix are shuffled across entities with \texttt{blake2b} (seed per train).
+$^{\dagger}$ ViProKG ($\lambda$=8, 3 seeds, same run): images are permuted only among the 7{,}790 entities that have an image, the mask is unchanged; $\pm$ = SD across seeds. $\Delta$(real$-$permuted) overall +0.17 (across-seed CI $t$, df\,=\,2 [$-$0.92; +1.26]; key bootstrap [$-$0.12; +0.46]): \emph{no signal detected} from the image content (the across-seed CI is wider than the 0.65 threshold, so this is not read as ``equivalent''). The ``off'' cell of v2: 3 runs with \texttt{use\_image}=0 at $\lambda$=8 (same configuration); $\Delta$(real$-$off) overall +0.10 (across-seed CI [$-$0.86; +1.05]; key bootstrap [$-$0.18; +0.37]), neutrality criterion $|\Delta|\le$0.65: PASS. The existing on/off control was measured at $\lambda_{\text{align}}$=0 and gave $\Delta$ overall $-$0.02 [$-$0.57; +0.52].
+\end{minipage}
+\end{table}
